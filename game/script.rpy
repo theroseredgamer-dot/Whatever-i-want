@@ -44,3 +44,6 @@ label start:
 
     We used to be neighbors, but I moved away a long time ago.
     """
+    # walk home together
+    # set up appartment
+    # get kidnapped lol

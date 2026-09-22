@@ -4,7 +4,8 @@
 # name of the character.
 label Characters:
     define Renji = Character("Renji", color="#b460bd")
-    define You = Character("You", color="#525152")
+    define You = Character("[player_name]", color="#525152")
+    default player_name = "Player"
     define teacher = Character("teacher", color="#01474a")
 
 label sprites:
@@ -19,12 +20,27 @@ label sprites:
 # The game starts here.
 
 label start:
-    "You hear a voice..."
-    "It's calling your name..."
-    "...What is your name?"
-    "teacher" "Wake up!!"
+    """
+    {cps=10}You hear a voice...{/cps}
+
+    {cps=10}It's calling your name...{/cps}
+    """
+    $ player_name = renpy.input("...What is your name?", length=13)
+    $ player_name = player_name.strip()
+    if player_name == "":
+        $ player_name = "Player"
+    
+    teacher """
+    Wake up [player_name]!!
+    """
     scene bgroom
     with fade 
     play sound clock
     show renjibunny
-    "Renji" "H-hi! I'm your new deskmate!"
+    Renji """
+    H-hi! I'm your new deskmate!
+
+    I'm the transfer student.  
+
+    We used to be neighbors, but I moved away a long time ago.
+    """

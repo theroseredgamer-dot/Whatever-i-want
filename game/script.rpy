@@ -10,6 +10,8 @@ label Characters:
 
 label sprites:
     image renB = "images/Renji/renjibunny.png"
+    image rensad = "images/Renji/renjisad.png"
+    image rensmile = "images/Renji/renjismile.png"
 
     label backgrounds:
         image class = "images/backgrounds/bgclass.png"
@@ -22,6 +24,9 @@ label sprites:
 
     label audio:
         define lull = "audio/The princess's lullaby.mp3"
+
+    label music:
+        define walking = "audio/walking.mp3"
 
 # The game starts here.
 
@@ -96,6 +101,49 @@ label start:
 
     Can we- or maybe you want to- walk home together?
     """
+
+    menu :
+
+        "I'd love to!":
+            # walk home together
+            jump walk_home
+        "I want to walk alone...":
+            # game end: you don't walk home with Renji
+            jump game_end
+
+label walk_home: 
+        hide renB with dissolve
+        show rensmile
+        Renji 
+        """
+        Really? I'm so happy!
+        """:
+            jump continue_story
+
+label game_end:
+        hide renB with dissolve
+        show rensad
+        Renji
+        """
+        Oh... I see. I understand.
+        """
+        
+        """ 
+        game end: you don't walk home with Renji
+        """
+        return
+
+label continue_story:
+
+        hide renB with dissolve
+        hide class with fade
+        play music walking
+
+        """
+        You and Renji walk to his apartment together.
+
+        When you arrive, you see there are still boxes all over the floor.
+        """
 
 
 

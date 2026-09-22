@@ -9,13 +9,19 @@ label Characters:
     define teacher = Character("teacher", color="#01474a")
 
 label sprites:
-    image renjibunny = "images/renjibunny.png"
+    image renB = "images/Renji/renjibunny.png"
 
     label backgrounds:
-        image bgroom = "images/bgroom.png"
+        image class = "images/backgrounds/bgclass.png"
+
+    label sound:
+        define audio.clock = "audio/clock.wav"
+
+    label music:
+        define lostM = "audio/lost memory.mp3"
 
     label audio:
-        define audio.clock = "audio/clock.wav"
+        define lull = "audio/The princess's lullaby.mp3"
 
 # The game starts here.
 
@@ -33,17 +39,66 @@ label start:
     teacher """
     Wake up [player_name]!!
     """
-    scene bgroom
+    scene class
     with fade 
     play sound clock
-    show renjibunny
+    show renB with moveinright
+    play music lostM
+
+    
     Renji """
     H-hi! I'm your new deskmate!
 
     I'm the transfer student.  
 
     We used to be neighbors, but I moved away a long time ago.
+
+    Do you remember me, [player_name]?
     """
+    
+    """
+    You smile. Of course you remember Renji! 
+    
+    You two were best friends when you were younger. 
+    
+    You two used to play together all the time, and you even had sleepovers at each other's houses.
+
+    You still remember how you two met. 
+
+    He really hasn't changed at all. He's still just as cute as back then.
+    """
+
+    You """
+    Renji! It's been so long!
+
+    I missed you.
+    """
+    
+    hide renB with dissolve
+    stop music fadeout 1.0
+
+    """
+    Before you could say more, the teacher calls everyone's attention back to class.
+
+    ...
+    """
+
+    play audio lull
+
+    """
+    After class ends, Renji approaches you again.
+    """
+
+    show renB with moveinright
+
+    Renji """
+    [player_name]! 
+
+    Can we- or maybe you want to- walk home together?
+    """
+
+
+
     # walk home together
     # set up appartment
     # get kidnapped lol
